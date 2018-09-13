@@ -65,25 +65,10 @@ class App extends React.Component {
         let breakpoint = this.getBreakPoint();
         this.setState({ breakpoint });
     }
-    renderChildren(child, index) {
-        return(
-            <components.ArticlePreview
-                html={child}
-                key={index}
-            />
-        )
-    }
-    renderLogo() {
-        return( <div /> );
-    }
     render() {
         return(
             <div className={`app ${this.state.breakpoint}`}>
-                {this.renderLogo()}
-                <components.Header />
-                {/*this.renderAudio()*/}
-                {articles.map(this.renderChildren.bind(this))}
-                <components.Footer />
+				<p>Chat goes here</p>
             </div>
         );
     }
