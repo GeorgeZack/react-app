@@ -1,0 +1,13 @@
+@import '../../App/Variables.less';
+
+.article-main {
+    @backgroundColorTransparent: fadeout(@backgroundColor, 20%);
+    background: @backgroundColorTransparent;
+    border-bottom: 3px ridge @borderColor;
+    border-top: 3px ridge @borderColor;
+    margin: 10px;
+    min-height: 600px;
+    padding: 20px;
+    position: relative;
+    text-align: justify;
+}

@@ -1,0 +1,25 @@
+@import 'Variables.less';
+@import (css) url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
+html {
+    background: @backgroundColor;
+    height: 100%;
+    width: 100%;
+}
+
+html, body, #app {
+    color: @primaryColor;
+    display: block;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+}
+
+.app {
+    @overlay: fadeout(lighten(@backgroundColor, 25%), 50%);
+    background: linear-gradient(@overlay,@overlay), url('../Assets/background.png');
+    border-left: 5px ridge @borderColor;
+    border-right: 5px ridge @borderColor;
+    height: 100%;
+    margin: auto;
+    max-width: 660px;
+}
