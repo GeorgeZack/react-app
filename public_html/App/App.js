@@ -65,7 +65,8 @@ class App extends React.Component {
     render() {
         return(
             <div className={`app ${this.state.breakpoint}`}>
-				<p>Chat goes here</p>
+                <components.Chat/>
+                <components.UserList/>
             </div>
         );
     }
