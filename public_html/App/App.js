@@ -2,7 +2,6 @@ import { Route, Switch, Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Transition, CSSTransition } from 'react-transition-group';
 import * as Components from '../Components/Components';
-import * as Articles from '../Articles/Articles';
 import css from './App.less';
 
 const components = Components.Components;
@@ -59,7 +58,6 @@ class App extends React.Component {
 	onPageChange() {
         const top = $(this.container).offset().top;
         $('html, body').animate({scrollTop: top}, 250);
-        console.log("onPageChange() -- Need to call Menu Close when any page change occurs. Menu Close is in the Menu Component");
 	}
     onWindowResize(e) {
         let breakpoint = this.getBreakPoint();
