@@ -5,7 +5,6 @@ import * as Components from '../Components/Components';
 import css from './App.less';
 
 const components = Components.Components;
-const articles = Articles.Articles;
 
 class App extends React.Component {
     constructor(props) {
