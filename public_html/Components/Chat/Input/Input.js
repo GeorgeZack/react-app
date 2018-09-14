@@ -10,20 +10,34 @@ class Input extends React.Component {
         this.prefix = 'chat-input';
         this.timer = null;
     }
-    handleEnterPress(event) {
-        if (event.key === "Enter") {
-            this.props.postChat(this.state.input);
-            this.setState({ input: '' });
+    handleKeyPress(event) {
+        if (event.key === "Enter" && !event.shiftKey) {
+            if (this.state.input.length > 0) {
+                this.props.postChat(this.state.input);
+                this.setState({ input: '' });                
+            }
+            event.preventDefault();
+        } else if (event.key === "Enter" && event.shiftKey) {
+            setTimeout(() => {
+                let input = this.state.input;
+                input = input + "<br />";
+                this.setState({ input });
+            });
         }
     }
     handleInputChange(event) {
+        console.log(event.target.value);
+        const input = event.target.value;
+        if (input.length > 500) {
+            
+        }
         if (this.timer) {
             clearTimeout(this.timer);
         }
         this.timer = setTimeout(this.onTextChangeTimeout.bind(this), 1000)
         this.setState({
             changed: true,
-            input: event.target.value
+            input
         });
     }
     onTextChangeTimeout() {
@@ -36,15 +50,15 @@ class Input extends React.Component {
     render() {
         return(
             <div className={`${this.prefix}`}>
-                <input
+                <textarea
                     className={`${this.prefix} input-area`}
                     onChange={(evt) => this.handleInputChange(evt)}
-                    onKeyPress={(evt) => this.handleEnterPress(evt)}
+                    onKeyPress={(evt) => this.handleKeyPress(evt)}
                     placeholder="Type in the chat here!"
                     value={this.state.input}
                 />
                 {this.state.changed &&
-                    <p className={`${this.prefix} `}>USER IS TYPING</p>
+                    <p className={`${this.prefix} typing`}>USER IS TYPING</p>
                 }
             </div>
         );

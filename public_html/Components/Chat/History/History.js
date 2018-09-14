@@ -10,7 +10,7 @@ class History extends React.Component {
             return null;
         }
         return(
-            <p key={index}>{message}</p>
+            <p className={`${this.prefix} item`} key={index}>{message}</p>
         );
     }
     render() {
