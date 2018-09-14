@@ -34,7 +34,7 @@ class Input extends React.Component {
         if (this.timer) {
             clearTimeout(this.timer);
         }
-        this.timer = setTimeout(this.onTextChangeTimeout.bind(this), 1000)
+        this.timer = setTimeout(this.onTextChangeTimeout.bind(this), 100000)
         this.setState({
             changed: true,
             input
