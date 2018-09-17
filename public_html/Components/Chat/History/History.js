@@ -6,21 +6,21 @@ class History extends React.Component {
         this.prefix = 'chat-history';
     }
     renderMessage(message, index) {
-        if (index < this.props.messages.length - 10) {
+        if (index < this.props.messages.length - this.props.messageLimit) {
             return null;
         }
         return(
-            <p className={`${this.prefix} item`} key={index}>{message}</p>
+            <p className={`${this.prefix}-item`} key={index}>{message}</p>
         );
     }
     render() {
         return(
             <div className={`${this.prefix}`}>
                 {this.props.messages.length > 0
-                    ?   <div>
+                    ?   <div className={`${this.prefix}-inner`}>
                             {this.props.messages.map(this.renderMessage.bind(this))}
                         </div>
-                    :   <p>Chat will show up here</p>
+                    :   <p>No chat history...</p>
                 }
             </div>
         );

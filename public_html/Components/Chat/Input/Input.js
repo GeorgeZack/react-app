@@ -34,7 +34,7 @@ class Input extends React.Component {
         if (this.timer) {
             clearTimeout(this.timer);
         }
-        this.timer = setTimeout(this.onTextChangeTimeout.bind(this), 100000)
+        this.timer = setTimeout(this.onTextChangeTimeout.bind(this), 500000)
         this.setState({
             changed: true,
             input
@@ -51,14 +51,14 @@ class Input extends React.Component {
         return(
             <div className={`${this.prefix}`}>
                 <textarea
-                    className={`${this.prefix} input-area`}
+                    className={`${this.prefix}-input-area`}
                     onChange={(evt) => this.handleInputChange(evt)}
                     onKeyPress={(evt) => this.handleKeyPress(evt)}
                     placeholder="Type in the chat here!"
                     value={this.state.input}
                 />
                 {this.state.changed &&
-                    <p className={`${this.prefix} typing`}>USER IS TYPING</p>
+                    <p className={`${this.prefix}-typing`}>USER IS TYPING</p>
                 }
             </div>
         );

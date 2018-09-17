@@ -13,6 +13,7 @@ class App extends React.Component {
             breakpoint: '',
         };
         this.container = null;
+        this.messageLimit = 500;
         this.handleWindowResize = this.onWindowResize.bind(this);
     }
     componentDidMount() {
@@ -65,7 +66,9 @@ class App extends React.Component {
     render() {
         return(
             <div className={`app ${this.state.breakpoint}`}>
-                <components.Chat/>
+                <components.Chat
+                    messageLimit={this.messageLimit}
+                />
                 <components.UserList/>
             </div>
         );

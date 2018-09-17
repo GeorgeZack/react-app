@@ -20,6 +20,7 @@ class Chat extends React.Component {
             <div className={`${this.prefix}`}>
                 <ChatHistory
                     messages={this.state.messages}
+                    messageLimit={this.props.messageLimit}
                 />
                 <ChatInput
                     postChat={this.postChat.bind(this)}

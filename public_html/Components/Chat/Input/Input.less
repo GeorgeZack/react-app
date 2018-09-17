@@ -1,7 +1,18 @@
 .chat-input {
-    width: 100%;
-}
+    display: block;
+    position: relative;
+    
+    textarea {
+      resize: none;
+    }
 
-textarea {
-  resize: none;
+    &-input-area {
+        display: block;
+        width: 100%;
+    }
+    
+    &-typing {
+        bottom: 40px;
+        position: absolute;
+    }
 }

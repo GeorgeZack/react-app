@@ -16,11 +16,26 @@ html, body, #app {
     margin: 0;
 }
 
+#app {
+    width: 100%;
+}
+
+body {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
 .app {
     @overlay: fadeout(lighten(@backgroundColor, 25%), 50%);
+    align-items: stretch;
+    display: flex;
+    flex-flow: row;
     height: 100%;
     margin: auto;
+    max-height: 500px;
     max-width: 660px;
-    margin: 200px auto;
-    height: 400px;
+    min-height: 400px;
+    width: 100%;
 }
