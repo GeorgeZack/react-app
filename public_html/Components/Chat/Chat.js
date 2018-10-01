@@ -16,13 +16,19 @@ class Chat extends React.Component {
         this.setState({ messages });
     }
     render() {
+        const historyHeight = ReactDOM.findDOMNode(this.chatHistory);
+        const chatHeight = ReactDOM.findDOMNode(this.chatInput);
+        const historyStyle = { height: historyHeight - chatHeight };
         return(
             <div className={`${this.prefix}`}>
                 <ChatHistory
+                    ref={ elem => {if (elem) { this.chatHistory = elem; }}}
                     messages={this.state.messages}
                     messageLimit={this.props.messageLimit}
+                    style={historyStyle}
                 />
                 <ChatInput
+                    ref={ elem => {if (elem) { this.chatInput = elem; }}}
                     postChat={this.postChat.bind(this)}
                 />
             </div>

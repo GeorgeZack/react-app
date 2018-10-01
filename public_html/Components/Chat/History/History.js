@@ -15,7 +15,7 @@ class History extends React.Component {
     }
     render() {
         return(
-            <div className={`${this.prefix}`}>
+            <div className={`${this.prefix}`} style={this.props.style}>
                 {this.props.messages.length > 0
                     ?   <div className={`${this.prefix}-inner`}>
                             {this.props.messages.map(this.renderMessage.bind(this))}

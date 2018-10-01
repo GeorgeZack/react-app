@@ -1,7 +1,7 @@
 {
     "name": "web-dev",
-    "version": "0.0.2",
-    "description": "**Live site:** https://www.georgesz.xyz/",
+    "version": "0.0.8",
+    "description": "Small project to develop an app with React and Electron",
     "main": "index.js",
     "scripts": {
         "start": "webpack-serve --mode development",
