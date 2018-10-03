@@ -6,7 +6,7 @@ class Input extends React.Component {
         this.state = {
             changed: false,
             input: ''
-        }
+        };
         this.prefix = 'chat-input';
         this.timer = null;
     }
@@ -14,7 +14,13 @@ class Input extends React.Component {
         if (event.key === "Enter" && !event.shiftKey) {
             if (this.state.input.length > 0) {
                 this.props.postChat(this.state.input);
-                this.setState({ input: '' });                
+                if (this.timer) {
+                    clearTimeout(this.timer);
+                }
+                this.setState({
+                    changed: false,
+                    input: ''
+                });
             }
             event.preventDefault();
         } else if (event.key === "Enter" && event.shiftKey) {
@@ -26,15 +32,14 @@ class Input extends React.Component {
         }
     }
     handleInputChange(event) {
-        console.log(event.target.value);
         const input = event.target.value;
         if (input.length > 500) {
-            
+            //TODO: limit user input
         }
         if (this.timer) {
             clearTimeout(this.timer);
         }
-        this.timer = setTimeout(this.onTextChangeTimeout.bind(this), 500000)
+        this.timer = setTimeout(this.onTextChangeTimeout.bind(this), 3000);
         this.setState({
             changed: true,
             input

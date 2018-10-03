@@ -1,10 +1,9 @@
 import { Route, Switch, Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Transition, CSSTransition } from 'react-transition-group';
-import * as Components from '../Components/Components';
+import Chat from './Chat/Chat';
+import UserList from './UserList/UserList';
 import css from './App.less';
-
-const components = Components.Components;
 
 class App extends React.Component {
     constructor(props) {
@@ -66,10 +65,10 @@ class App extends React.Component {
     render() {
         return(
             <div className={`app ${this.state.breakpoint}`}>
-                <components.Chat
+                <Chat
                     messageLimit={this.messageLimit}
                 />
-                <components.UserList/>
+                <UserList/>
             </div>
         );
     }
