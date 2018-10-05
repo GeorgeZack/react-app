@@ -1,8 +1,8 @@
 import { Route, Switch, Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Transition, CSSTransition } from 'react-transition-group';
-import Chat from './Chat/Chat';
-import UserList from './UserList/UserList';
+import Chat from '../Components/Chat/Chat';
+import UserList from '../Components/UserList/UserList';
 import css from './App.less';
 
 class App extends React.Component {
@@ -63,7 +63,7 @@ class App extends React.Component {
         this.setState({ breakpoint });
     }
     render() {
-        return(
+        return (
             <div className={`app ${this.state.breakpoint}`}>
                 <Chat
                     messageLimit={this.messageLimit}

@@ -53,7 +53,7 @@ class Input extends React.Component {
         this.setState({ changed: false });
     }
     render() {
-        return(
+        return (
             <div className={`${this.prefix}`}>
                 <textarea
                     className={`${this.prefix}-input-area`}

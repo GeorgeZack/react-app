@@ -19,7 +19,7 @@ class Chat extends React.Component {
         const historyHeight = ReactDOM.findDOMNode(this.chatHistory);
         const chatHeight = ReactDOM.findDOMNode(this.chatInput);
         const historyStyle = { height: historyHeight - chatHeight };
-        return(
+        return (
             <div className={`${this.prefix}`}>
                 <ChatHistory
                     ref={ elem => {if (elem) { this.chatHistory = elem; }}}

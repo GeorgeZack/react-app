@@ -9,12 +9,12 @@ class History extends React.Component {
         if (index < this.props.messages.length - this.props.messageLimit) {
             return null;
         }
-        return(
+        return (
             <p className={`${this.prefix}-item`} key={index}>{message}</p>
         );
     }
     render() {
-        return(
+        return (
             <div className={`${this.prefix}`} style={this.props.style}>
                 {this.props.messages.length > 0
                     ?   <div className={`${this.prefix}-inner`}>
