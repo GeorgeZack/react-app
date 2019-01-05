@@ -14,6 +14,7 @@ class History extends React.Component {
         );
     }
     render() {
+		console.log(this.props.style);
         return (
             <div className={`${this.prefix}`} style={this.props.style}>
                 {this.props.messages.length > 0
