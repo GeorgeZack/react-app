@@ -1,10 +1,12 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const sourcePath = "src/renderer"
 
 const reactPlugin = new webpack.ProvidePlugin({
-    "React": "react",
-    "ReactDOM": "react-dom"
+    React: "react",
+    ReactDOM: "react-dom"
 });
 
 const jqueryPlugin = new webpack.ProvidePlugin({
@@ -13,13 +15,20 @@ const jqueryPlugin = new webpack.ProvidePlugin({
 });
 
 const htmlPlugin = new HtmlWebPackPlugin({
-    template: "./public_html/index.html",
+    template: `./${sourcePath}/index.html`,
     filename: "./index.html"
+});
+
+const cssPlugin = new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      // filename: "[name].css",
+      chunkFilename: "[id].css"
 });
 
 module.exports = {
     mode: 'development',
-    entry: './public_html/index.js',
+    entry: `./${sourcePath}/index.js`,
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
@@ -35,17 +44,16 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                use: [
-                    {
-                        loader: 'style-loader'
-                    },
-                    {
-                        loader: 'css-loader'
-                    },
-                    {
-                        loader: 'less-loader'
-                    }
-                ]
+				use: [{
+					loader: MiniCssExtractPlugin.loader,
+					options: {
+						// you can specify a publicPath here
+						// by default it use publicPath in webpackOptions.output
+						// publicPath: '../'
+					}
+				},
+				'css-loader', 'less-loader'
+				]
             },
             {
                 test: /\.(png|jpg|gif|svg)$/,
@@ -53,7 +61,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: './public_html/Assets/[name].[ext]',
+                            name: `./${sourcePath}/Assets/[name].[ext]`,
                         }
                     }
                 ]
@@ -64,7 +72,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: './public_html/Media/[name].[ext]',
+                            name: `./${sourcePath}/Media/[name].[ext]`,
                         }
                     }
                 ]
@@ -74,6 +82,6 @@ module.exports = {
     plugins: [
         reactPlugin,
         jqueryPlugin,
-        htmlPlugin
+		cssPlugin
     ]
 };

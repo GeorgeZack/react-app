@@ -1,5 +1,5 @@
-import { Router } from 'react-router'
-import createBrowserHistory from 'history/createBrowserHistory'
+import { Router } from 'react-router';
+import createBrowserHistory from 'history/createBrowserHistory';
 import App from './App/App';
 
 const browserHistory = createBrowserHistory();
